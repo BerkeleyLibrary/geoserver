@@ -143,10 +143,10 @@ jobs:
       - if: ${{ always() }}
         name: Retain logs and configs for debugging
         run: |
-          mkdir artifacts && cd artifacts
-          docker compose logs > docker-compose.log
-          docker compose config > docker-compose.yml
-          curl -sL --cookie-jar .cookies http://localhost:8080/geoserver/web/ || true > geoserver-web.html
+          mkdir artifacts
+          docker compose logs > artifacts/docker-compose.log
+          docker compose config > artifacts/docker-compose.yml
+          curl -sL --cookie-jar .cookies http://localhost:8080/geoserver/web/ || true > artifacts/geoserver-web.html
 
       - if: ${{ always() }}
         name: Upload build artifacts
