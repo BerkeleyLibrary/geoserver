@@ -140,6 +140,24 @@ jobs:
         run: |
           docker compose exec app run-tests
 
+      - if: ${{ always() }}
+        name: Retain logs and configs for debugging
+        run: |
+          mkdir artifacts && cd artifacts
+          docker compose logs > docker-compose.log
+          docker compose config > docker-compose.yml
+          curl -sL --cookie-jar .cookies http://localhost:8080/geoserver/web/ || true > geoserver-web.html
+
+      - if: ${{ always() }}
+        name: Upload build artifacts
+        uses: actions/upload-artifact
+        with:
+          name: GeoServer Build (${{ env.BUILD_SUFFIX }})
+          path: artifacts/*
+          if-no-files-found: error
+          retention-days: 7
+          include-hidden-files: false
+
   push:
     runs-on: ubuntu-24.04
     needs:
