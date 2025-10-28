@@ -1,0 +1,9 @@
+services:
+  app:
+    build:
+      args:
+        - GEOSERVER_VERSION=${GEOSERVER_VERSION}
+      context: .
+    image: ucblib/geoserver:${DOCKER_TAG:-development}
+    ports:
+      - 8080:8080
