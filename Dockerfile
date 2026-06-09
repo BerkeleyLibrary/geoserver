@@ -1,6 +1,6 @@
 FROM tomcat:9-jre17-temurin-focal AS base
 
-ARG GEOSERVER_VERSION="2.28.0"
+ARG GEOSERVER_VERSION="2.28.2"
 ENV GEOSERVER_VERSION=$GEOSERVER_VERSION
 ENV GEOSERVER_URL="https://sourceforge.net/projects/geoserver/files/GeoServer/${GEOSERVER_VERSION}/geoserver-${GEOSERVER_VERSION}-war.zip"
 ENV GEOSERVER_LIB_DIR="/usr/local/tomcat/webapps/geoserver/WEB-INF/lib"
