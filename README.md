@@ -1,3 +1,7 @@
+# ARCHIVED!
+
+As of 06/23/26, we've migrated to the "official" [osgeo images](https://github.com/geoserver/docker). This repo is retained read-only for historical reference, only. For GeoData/GeoServer integration testing, see the [geodata repo](https://github.com/BerkeleyLibrary/geodata).
+
 # GeoServer Docker Image
 
 A Tomcat-based Docker image that installs and runs [GeoServer](https://geoserver.org/) with its CAS and GDAL plugins.
